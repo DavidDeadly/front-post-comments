@@ -5,10 +5,22 @@ import { FormsModule } from "@angular/forms";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { CreatePostComponent } from './components/create-post/create-post.component';
+import { MainComponent } from './components/main/main.component';
+import { PostComponent } from './components/post/post.component';
+import { PostDetailedComponent } from './components/post-detailed/post-detailed.component';
+import { CommentComponent } from './components/comment/comment.component';
+import { BtnCreatePostComponent } from './components/btn-create-post/btn-create-post.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CreatePostComponent,
+    MainComponent,
+    PostComponent,
+    PostDetailedComponent,
+    CommentComponent,
+    BtnCreatePostComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { RequestsService } from './services/requests.service';
+import { Component, OnChanges, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -7,19 +7,12 @@ import { RequestsService } from './services/requests.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  newTitle: string = '';
-  newAuthor: string  = '';
+  
+  constructor() {}
 
-  constructor(private requests: RequestsService) {}
-
-  ngOnInit(): void {}
-
-  createPost() {
-    this.requests.createPost({title: this.newTitle, author: this.newAuthor})
-    .subscribe(res => {
-      console.log(res);
-      this.newTitle = '';
-      this.newAuthor = '';
-    });
+  ngOnInit(): void {
+    console.log("h");
   }
+
+
 }

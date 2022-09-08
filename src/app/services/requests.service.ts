@@ -11,7 +11,15 @@ export class RequestsService {
 
   constructor(private http: HttpClient) { }
 
-  createPost(post: Post): Observable<PostDB> {
-    return this.http.post<PostDB>("http://127.0.0.1:8080/post", post);
+  createPost(post: Post) {
+    return this.http.post("http://127.0.0.1:8080/post", post);
+  }
+
+  bringAllPosts(): Observable<Array<PostDB>> {
+    return this.http.get<Array<PostDB>>("http://127.0.0.1:8081/posts");
+  }
+
+  bringPostById(postId: string): Observable<PostDB> {
+    return this.http.get<PostDB>(`http://127.0.0.1:8081/post/${postId}`);
   }
 }
