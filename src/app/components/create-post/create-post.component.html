@@ -1,15 +1,17 @@
 <div>
-  <h1>Create a post</h1>
+  <h1>New post</h1>
 
   <label for="title">
     Title:
-    <input type="text" name="title" id="title" placeholder="Insert interesting title..." [(ngModel)]="newTitle">
+    <input #inputs type="text" name="title" id="title" placeholder="Insert interesting title..." [(ngModel)]="newTitle"
+      (ngModelChange)="checkInputs()">
   </label>
 
   <label for="author">
     Author:
-    <input type="text" name="author" id="author" placeholder="Insert great person.." [(ngModel)]="newAuthor">
+    <input #inputs type="text" name="author" id="author" placeholder="Insert great person.." [(ngModel)]="newAuthor"
+      (ngModelChange)="checkInputs()">
   </label>
 
-  <button (click)="createPost()">Create</button>
+  <button #createBtn (click)="createPost()">{{textCreateBtn}}</button>
 </div>

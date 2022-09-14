@@ -1,11 +1,12 @@
 div {
   display: grid;
+  width: 100%;
   place-content: center;
   text-align: center;
   width: fit-content;
   padding: 3rem;
   margin: auto;
-  margin-top: 25vh;
+  margin-top: 20vh;
   gap: 10px;
   font-size: 18px;
   border: solid gray 1px;
@@ -52,16 +53,29 @@ div {
     -moz-border-radius: 15px;
     -ms-border-radius: 15px;
     -o-border-radius: 15px;
-    transition: scale 250ms;
-    -webkit-transition: scale 250ms;
-    -moz-transition: scale 250ms;
-    -ms-transition: scale 250ms;
-    -o-transition: scale 250ms;
+    transition: 250ms ease;
+    transition-property: scale background-color;
+    -webkit-transition: 250ms ease;
+    -moz-transition: 250ms ease;
+    -ms-transition: 250ms ease;
+    -o-transition: 250ms ease;
+
+    &:hover {
+      cursor: pointer;
+      background-color: aquamarine;
+      scale: 1.1;
+    }
+
+    &:focus {
+      outline-style: dotted;
+    }
+
+    &:disabled {
+      background-color: lightgray;
+      cursor: default;
+      scale: 1;
+    }
   }
 
-  button:hover {
-    cursor: pointer;
-    background-color: aquamarine;
-    scale: 1.1;
-  }
+
 }

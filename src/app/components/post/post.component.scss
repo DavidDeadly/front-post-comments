@@ -1,0 +1,47 @@
+a {
+  display:inline-block;
+  width: 50%;
+  padding: 10px;
+  background-color: lightgray;
+  text-decoration: none;
+  color: inherit;
+  border: none;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  transition: 250ms ease-in-out ;
+  transition-property: transform color;
+  -webkit-transition: 250ms ease-in-out ;
+  -moz-transition: 250ms ease-in-out ;
+  -ms-transition: 250ms ease-in-out ;
+  -o-transition: 250ms ease-in-out ;
+
+
+  h1,h3 {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  @mixin highlightPost() {
+    color: darkcyan;
+    margin: 5px 0;
+    transform: scale(1.030);
+    -webkit-transform: scale(1.030);
+    -moz-transform: scale(1.030);
+    -ms-transform: scale(1.030);
+    -o-transform: scale(1.030);
+  }
+
+  &:hover {
+    @include highlightPost();
+  }
+
+  &:focus {
+    outline-style: dotted;
+    @include highlightPost();
+  }
+  
+}

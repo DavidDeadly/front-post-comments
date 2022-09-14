@@ -4,9 +4,12 @@
 
 export const env = {
   production: false,
-  ALPHA_URL: "http://127.0.0.1:8080/",
-  BETA_URL: "http://127.0.0.1:8081/",
-  GAMA_URL: "ws://127.0.0.1:8082/"
+  // ALPHA_URL: "http://127.0.0.1:8080/",
+  // BETA_URL: "http://127.0.0.1:8081/",
+  // GAMA_URL: "ws://127.0.0.1:8082/"
+  ALPHA_URL: "https://alpha-daviddeadly.herokuapp.com/",
+  BETA_URL: "https://beta-daviddeadly.herokuapp.com/",
+  GAMA_URL: "wss://gama-daviddeadly.herokuapp.com/"
 };
 
 /*

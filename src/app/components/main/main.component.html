@@ -1,4 +1,9 @@
-<app-btn-create-post></app-btn-create-post>
-<div *ngFor="let post of posts">
-  <app-post [post]="post"></app-post>
-</div>
+<main>
+  <app-create-post></app-create-post>
+  <div id="posts">
+    <h1>Posts</h1>
+    <div *ngFor="let post of posts">
+      <app-post [post]="post"></app-post>
+    </div>
+  </div>
+</main>

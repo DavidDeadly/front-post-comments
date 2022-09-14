@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ViewChild, ElementRef, OnInit, OnChanges, SimpleChanges, AfterViewInit, Input, ViewChildren } from '@angular/core';
 import { RequestsService } from 'src/app/services/requests.service';
 
 @Component({
@@ -6,20 +6,48 @@ import { RequestsService } from 'src/app/services/requests.service';
   templateUrl: './create-post.component.html',
   styleUrls: ['./create-post.component.scss']
 })
-export class CreatePostComponent implements OnInit {
-  newTitle: string = '';
-  newAuthor: string  = '';
+export default class CreatePostComponent implements OnInit, AfterViewInit {
+  newTitle: string = "";
+  newAuthor: string  = "";
+  textCreateBtn: string = "Create";
+  @ViewChild("createBtn") createBtn !: ElementRef<HTMLButtonElement>;
+  @ViewChildren("inputs") inputs !: Array<ElementRef<HTMLInputElement>>
 
   constructor(private requests: RequestsService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
 
   createPost() {
+    this.loadingCreatePostForm();
+
     this.requests.createPost({title: this.newTitle, author: this.newAuthor})
-    .subscribe(() => {
-      this.newTitle = '';
-      this.newAuthor = '';
-    });
+    .subscribe(() => this.resetCreatePostForm());
+  }
+
+  loadingCreatePostForm() {
+    this.textCreateBtn = "..."
+    this.createBtn.nativeElement.disabled = true;
+    this.inputs.forEach(input => input.nativeElement.disabled = true);
+  }
+
+  resetCreatePostForm() {
+    this.newTitle = "";
+    this.newAuthor = "";
+    this.textCreateBtn = "Create"
+    this.inputs.forEach(input => input.nativeElement.disabled = false);
+  } 
+
+   ngAfterViewInit() {
+    this.createBtn.nativeElement.disabled = true;
+  }
+
+  checkInputs() {
+    if(!this.newAuthor || !this.newTitle) {
+      this.createBtn.nativeElement.disabled = true;
+    } else {
+      this.createBtn.nativeElement.disabled = false;
+    }
   }
 
 }

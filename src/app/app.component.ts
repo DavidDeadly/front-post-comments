@@ -1,5 +1,4 @@
-import { Component, OnChanges, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -10,9 +9,5 @@ export class AppComponent implements OnInit {
   
   constructor() {}
 
-  ngOnInit(): void {
-    console.log("h");
-  }
-
-
+  ngOnInit(): void {}
 }
