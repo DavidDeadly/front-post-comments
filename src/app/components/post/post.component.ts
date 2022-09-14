@@ -8,7 +8,7 @@ import { PostDB } from 'src/app/models/Post';
 })
 export class PostComponent implements OnInit {
 
-  @Input() post ?: PostDB;
+  @Input() post !: PostDB;
 
   constructor() { }
 

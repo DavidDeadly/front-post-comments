@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Post, PostDB } from '../models/Post';
 import { Observable } from 'rxjs';
+import { env } from 'src/environments/environment';
 
 
 @Injectable({
@@ -12,14 +13,14 @@ export class RequestsService {
   constructor(private http: HttpClient) { }
 
   createPost(post: Post) {
-    return this.http.post("http://127.0.0.1:8080/post", post);
+    return this.http.post(`${env.ALPHA_URL}post`, post);
   }
 
   bringAllPosts(): Observable<Array<PostDB>> {
-    return this.http.get<Array<PostDB>>("http://127.0.0.1:8081/posts");
+    return this.http.get<Array<PostDB>>(`${env.BETA_URL}posts`);
   }
 
   bringPostById(postId: string): Observable<PostDB> {
-    return this.http.get<PostDB>(`http://127.0.0.1:8081/post/${postId}`);
+    return this.http.get<PostDB>(`${env.BETA_URL}post/${postId}`);
   }
 }

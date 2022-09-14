@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { webSocket, WebSocketSubject } from "rxjs/webSocket";
+import { env } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +11,6 @@ export class WebsocketService {
 
   conectToWebSocket<T>(spaceStr: string | null): WebSocketSubject<T> | undefined{
     if(!spaceStr) return;
-    return webSocket(`ws://127.0.0.1:8082/retrieve/${spaceStr}`);
+    return webSocket(`${env.GAMA_URL}retrieve/${spaceStr}`);
   }
 }
