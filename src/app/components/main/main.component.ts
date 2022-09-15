@@ -1,21 +1,24 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { WebSocketSubject } from 'rxjs/webSocket';
 import { PostDB } from 'src/app/models/Post';
-import { RequestsService } from 'src/app/services/requests.service';
-import { WebsocketService } from 'src/app/services/websocket.service';
+import { AuthService } from 'src/app/services/auth/auth.service';
+import { RequestsService } from 'src/app/services/requests/requests.service';
+import { WebsocketService } from 'src/app/services/websocket/websocket.service';
 
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.scss']
 })
-export class MainComponent implements OnInit {
+export class MainComponent implements OnInit, OnDestroy {
   socketManager?: WebSocketSubject<PostDB>;
   posts: PostDB[] = [];
 
   constructor(
     private requests: RequestsService,
-    private socket: WebsocketService
+    private socket: WebsocketService,
+    private authService: AuthService
   ) { }
 
 
@@ -24,10 +27,13 @@ export class MainComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.requests.bringAllPosts()
-    .subscribe(res => this.posts = res.reverse());
-
-    this.connectToMainSpace();
+    this.authService.isLoggedIn(() => {
+      
+      this.requests.bringAllPosts()
+      .subscribe(res => this.posts = res.reverse());
+  
+      this.connectToMainSpace();
+    })
   }
 
   connectToMainSpace() {

@@ -11,6 +11,10 @@ import { PostComponent } from './components/post/post.component';
 import { PostDetailedComponent } from './components/post-detailed/post-detailed.component';
 import { CommentComponent } from './components/comment/comment.component';
 import { CreateCommentComponent } from './components/create-comment/create-comment.component';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideAuth,getAuth } from '@angular/fire/auth';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -21,12 +25,15 @@ import { CreateCommentComponent } from './components/create-comment/create-comme
     PostDetailedComponent,
     CommentComponent,
     CreateCommentComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideAuth(() => getAuth())
   ],
   providers: [],
   bootstrap: [AppComponent]

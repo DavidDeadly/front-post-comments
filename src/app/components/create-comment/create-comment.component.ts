@@ -1,5 +1,5 @@
 import { Component, ElementRef, Input, OnInit, ViewChild, ViewChildren } from '@angular/core';
-import { RequestsService } from 'src/app/services/requests.service';
+import { RequestsService } from 'src/app/services/requests/requests.service';
 
 @Component({
   selector: 'app-create-comment',

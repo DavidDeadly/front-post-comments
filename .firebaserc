@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "sofkapostandcomments"
+  },
+  "targets": {
+    "sofkapostandcomments": {
+      "hosting": {
+        "front-post-comments": [
+          "sofkapostandcomments"
+        ]
+      }
+    }
   }
 }

@@ -2,8 +2,9 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { WebSocketSubject } from 'rxjs/webSocket';
 import { CommentDB, PostDB } from 'src/app/models/Post';
-import { RequestsService } from 'src/app/services/requests.service';
-import { WebsocketService } from 'src/app/services/websocket.service';
+import { AuthService } from 'src/app/services/auth/auth.service';
+import { RequestsService } from 'src/app/services/requests/requests.service';
+import { WebsocketService } from 'src/app/services/websocket/websocket.service';
 
 @Component({
   selector: 'app-post-detailed',
@@ -17,7 +18,8 @@ export class PostDetailedComponent implements OnInit, OnDestroy {
   constructor(
     private route: ActivatedRoute,
     private requests: RequestsService,
-    private socket: WebsocketService
+    private socket: WebsocketService,
+    private authService: AuthService
   ) { }
 
   ngOnDestroy(): void {
@@ -25,9 +27,11 @@ export class PostDetailedComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.getPost();
-
-    this.connectToPostSpace();
+    this.authService.isLoggedIn(() => {
+      this.getPost();
+  
+      this.connectToPostSpace();
+    })
   }
 
   getPost() {
