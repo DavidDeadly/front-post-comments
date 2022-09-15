@@ -40,8 +40,6 @@ export class PostDetailedComponent implements OnInit, OnDestroy {
     this.socketManager = this.socket.conectToWebSocket<CommentDB>(id);
     this.socketManager
     ?.subscribe(msg => {
-      console.log(msg);
-      console.log(this.post?.comments);
       this.post?.comments.push(msg);
     })
   }

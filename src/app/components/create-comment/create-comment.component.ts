@@ -1,28 +1,32 @@
-import { Component, ViewChild, ElementRef, OnInit, AfterViewInit, ViewChildren } from '@angular/core';
+import { Component, ElementRef, Input, OnInit, ViewChild, ViewChildren } from '@angular/core';
 import { RequestsService } from 'src/app/services/requests.service';
 
 @Component({
-  selector: 'app-create-post',
-  templateUrl: './create-post.component.html',
-  styleUrls: ['./create-post.component.scss']
+  selector: 'app-create-comment',
+  templateUrl: './create-comment.component.html',
+  styleUrls: ['./create-comment.component.scss']
 })
-export default class CreatePostComponent implements OnInit, AfterViewInit {
-  newTitle: string = "";
-  newAuthor: string  = "";
-  textCreateBtn: string = "Create";
-  @ViewChild("createBtn") createBtn !: ElementRef<HTMLButtonElement>;
+export class CreateCommentComponent implements OnInit {
+
+  content: string = "";
+  author: string  = "";
+  @Input() id?: string;
+  textCreateBtn: string = "Comment";
+  @ViewChild("commentBtn") createBtn !: ElementRef<HTMLButtonElement>;
   @ViewChildren("inputs") inputs !: Array<ElementRef<HTMLInputElement>>
 
   constructor(private requests: RequestsService) {}
 
   ngOnInit(): void {
+    
   }
 
   createPost() {
     this.loadingCreatePostForm();
-
-    this.requests.createPost({title: this.newTitle, author: this.newAuthor})
-    .subscribe(() => this.resetCreatePostForm());
+    if(this.id) {
+      this.requests.addComment({postID: this.id, content: this.content, author: this.author})
+      .subscribe(() => this.resetCreatePostForm());
+    }
   }
 
   loadingCreatePostForm() {
@@ -32,9 +36,9 @@ export default class CreatePostComponent implements OnInit, AfterViewInit {
   }
 
   resetCreatePostForm() {
-    this.newTitle = "";
-    this.newAuthor = "";
-    this.textCreateBtn = "Create"
+    this.content = "";
+    this.author = "";
+    this.textCreateBtn = "Comment"
     this.inputs.forEach(input => input.nativeElement.disabled = false);
   } 
 
@@ -43,11 +47,12 @@ export default class CreatePostComponent implements OnInit, AfterViewInit {
   }
 
   checkInputs() {
-    if(!this.newAuthor || !this.newTitle) {
+    if(!this.author || !this.content) {
       this.createBtn.nativeElement.disabled = true;
     } else {
       this.createBtn.nativeElement.disabled = false;
     }
   }
+
 
 }

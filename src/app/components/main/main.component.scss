@@ -41,7 +41,6 @@ main {
       width: 10px;
     }
     
-    /* Track */
     &::-webkit-scrollbar-track {
       background: lightgray;
       border-radius: 5px;
@@ -51,7 +50,6 @@ main {
       -o-border-radius: 5px;
     }
     
-    /* Handle */
     &::-webkit-scrollbar-thumb {
       background: darkcyan;
       border-radius: 5px;
@@ -61,7 +59,6 @@ main {
       -o-border-radius: 5px;
     }
     
-    /* Handle on hover */
     &::-webkit-scrollbar-thumb:hover {
       background-color: cyan;       
     }

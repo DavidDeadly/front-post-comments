@@ -1,0 +1,17 @@
+<div>
+  <h1>Discuss!</h1>
+
+  <label for="content">
+    Content:
+    <textarea #inputs type="text" name="content" id="content" placeholder="Insert interesting title..."
+      [(ngModel)]="content" (ngModelChange)="checkInputs()"></textarea>
+  </label>
+
+  <label for="author">
+    Author:
+    <input #inputs type="text" name="author" id="author" placeholder="Insert great person.." [(ngModel)]="author"
+      (ngModelChange)="checkInputs()">
+  </label>
+
+  <button #commentBtn (click)="createPost()"> {{textCreateBtn}} </button>
+</div>

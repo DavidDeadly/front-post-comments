@@ -1,5 +1,6 @@
 a {
   display:inline-block;
+  position: relative;
   width: 50%;
   padding: 10px;
   background-color: lightgray;
@@ -23,6 +24,20 @@ a {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+  }
+
+  p {
+    position: absolute;
+    bottom: 0;
+    background-color: darkgray;
+    width: max-content;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
   }
 
   @mixin highlightPost() {

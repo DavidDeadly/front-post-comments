@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Post, PostDB } from '../models/Post';
+import { Comment, Post, PostDB } from '../models/Post';
 import { Observable } from 'rxjs';
 import { env } from 'src/environments/environment';
 
@@ -14,6 +14,10 @@ export class RequestsService {
 
   createPost(post: Post) {
     return this.http.post(`${env.ALPHA_URL}post`, post);
+  }
+
+  addComment(comment: Comment) {
+    return this.http.post(`${env.ALPHA_URL}post/addComment`, comment)
   }
 
   bringAllPosts(): Observable<Array<PostDB>> {

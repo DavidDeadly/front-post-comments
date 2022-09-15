@@ -1,0 +1,27 @@
+div {
+  position: relative;
+  border: none;
+  margin: auto;
+  
+  p {
+    padding: 15px;
+    margin: 0;
+    background-color: gray;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+  }
+  
+  h5 {
+    position: absolute;
+    right: 0;
+    background-color: darkgray;
+    width: max-content;
+    font-size: 1rem;
+    font-style: italic;
+    text-align: end;
+    padding: 5px 10px;
+    margin: 0;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+  }
+}

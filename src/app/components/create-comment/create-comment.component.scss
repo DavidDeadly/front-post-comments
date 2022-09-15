@@ -1,0 +1,86 @@
+div {
+  display: grid;
+  width: 100%;
+  place-content: center;
+  text-align: center;
+  width: fit-content;
+  padding: 3rem;
+  margin: auto;
+  margin-top: 10vh;
+  gap: 10px;
+  font-size: 18px;
+  border: solid gray 1px;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  font-weight: bold;
+
+  h1 {
+    margin: 0;
+  }
+
+  label {
+    display: grid;
+    gap: 10px;
+
+    input, textarea {
+      width: 100%;
+      border: 1px solid gray;
+      padding: 8px;
+      border-radius: 5px;
+      -webkit-border-radius: 5px;
+      -moz-border-radius: 5px;
+      -ms-border-radius: 5px;
+      -o-border-radius: 5px;
+    }
+  }
+
+  input:focus, textarea {
+    outline-style: none;
+  }
+
+  textarea, textarea {
+    height: 150px;
+    resize: none;
+  }
+
+  button {
+    width: 50%;
+    margin: 10px auto;
+    font-size: 18px;
+    padding: 8px;
+    background-color: cyan;
+    border: none;
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+    transition: 250ms ease;
+    transition-property: scale background-color;
+    -webkit-transition: 250ms ease;
+    -moz-transition: 250ms ease;
+    -ms-transition: 250ms ease;
+    -o-transition: 250ms ease;
+
+    &:hover {
+      cursor: pointer;
+      background-color: aquamarine;
+      scale: 1.1;
+    }
+
+    &:focus {
+      outline-style: dotted;
+    }
+
+    &:disabled {
+      background-color: lightgray;
+      cursor: default;
+      scale: 1;
+    }
+  }
+
+
+}

@@ -3,15 +3,18 @@ export interface Post {
   author: string
 }
 
+export interface Comment {
+  postID: string,
+  author: string,
+  content: string
+}
+
 export interface PostDB extends Post {
   id: string,
   postID: string,
   comments: Array<CommentDB>
 }
 
-export interface CommentDB {
-  postID: string,
+export interface CommentDB extends Comment {
   commentID: string,
-  author: string,
-  content: string
 }
