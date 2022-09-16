@@ -44,10 +44,11 @@ export class CreateCommentComponent implements OnInit {
     btnCreate.innerText = "DENIED";
     btnCreate.classList.add("invalid");
     btnCreate.parentElement?.classList.add("invalid");
+    this.content = "";
+    this.author = "";
 
     this.inputs.forEach((input, i) => {
       const inputEl = input.nativeElement;
-      inputEl.value = "";
 
       if(i === 0) inputEl.placeholder = "NO";
       else inputEl.placeholder = "ACCESS";

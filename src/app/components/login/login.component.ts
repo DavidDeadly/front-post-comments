@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { catchError, Observable, of, onErrorResumeNext } from 'rxjs';
+import { catchError, of } from 'rxjs';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { RequestsService } from 'src/app/services/requests/requests.service';
-import { environment } from 'src/environments/environment';
 
 
 interface  AfterLoginI  {
@@ -42,7 +41,6 @@ export class LoginComponent implements OnInit {
 
     });
   }
-  
 
   logInToState = ({ token, user }: AfterLoginI) => {
 

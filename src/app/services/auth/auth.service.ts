@@ -28,14 +28,12 @@ export class AuthService {
   ) { } 
 
   isLoggedIn(cb: Function) {
-    this.state
-    .subscribe(state => {
 
-      if(!state.loggedIn) {
-        this.router.navigateByUrl("/login");
-      } else cb();
-      
-    })
+    const state = this.state.getValue();
+
+    if(!state.loggedIn) {
+      this.router.navigateByUrl("/login");
+    } else cb();
   }
 
   logInWithGoogle() {

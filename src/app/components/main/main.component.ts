@@ -1,5 +1,4 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { WebSocketSubject } from 'rxjs/webSocket';
 import { PostDB } from 'src/app/models/Post';
 import { AuthService } from 'src/app/services/auth/auth.service';

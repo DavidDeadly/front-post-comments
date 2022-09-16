@@ -1,5 +1,4 @@
 import { Component, ViewChild, ElementRef, OnInit, AfterViewInit, ViewChildren } from '@angular/core';
-import { catchError, of, onErrorResumeNext } from 'rxjs';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { RequestsService } from 'src/app/services/requests/requests.service';
 
@@ -33,19 +32,20 @@ export default class CreatePostComponent implements OnInit, AfterViewInit {
     this.requests.createPost({title: this.newTitle, author: this.newAuthor}, this.token)
     .subscribe({
       next: () => this.resetCreatePostForm(),
-      error: () => this.deniedCreatePostForm
+      error: () => this.deniedCreatePostForm()
     });
   }
 
-  deniedCreatePostForm = () => {
+  deniedCreatePostForm () {
     const btnCreate = this.createBtn.nativeElement;
     btnCreate.innerText = "DENIED";
     btnCreate.classList.add("invalid");
     btnCreate.parentElement?.classList.add("invalid");
-
+    this.newAuthor = "";
+    this.newTitle = "";
+    
     this.inputs.forEach((input, i) => {
       const inputEl = input.nativeElement;
-      inputEl.value = "";
 
       if(i === 0) inputEl.placeholder = "NO";
       else inputEl.placeholder = "ACCESS";
