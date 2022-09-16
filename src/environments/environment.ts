@@ -3,6 +3,7 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
+  production: false,
   firebase: {
     projectId: 'sofkapostandcomments',
     appId: '1:1088865971980:web:50317077830eea05512329',
@@ -11,11 +12,10 @@ export const environment = {
     authDomain: 'sofkapostandcomments.firebaseapp.com',
     messagingSenderId: '1088865971980',
   },
-  production: false,
-  // ALPHA_URL: "http://127.0.0.1:8080/",
+  ALPHA_URL: "http://127.0.0.1:8080/",
   // BETA_URL: "http://127.0.0.1:8081/",
   // GAMA_URL: "ws://127.0.0.1:8082/",
-  ALPHA_URL: "https://alpha-daviddeadly.herokuapp.com/",
+  // ALPHA_URL: "https://alpha-daviddeadly.herokuapp.com/",
   BETA_URL: "https://beta-daviddeadly.herokuapp.com/",
   GAMA_URL: "wss://gama-daviddeadly.herokuapp.com/"
 };

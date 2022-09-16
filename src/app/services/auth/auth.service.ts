@@ -3,14 +3,21 @@ import { Auth, GoogleAuthProvider, signInWithPopup } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 
+interface InitialStateI {
+  loggedIn: boolean,
+  authUser: any,
+  token?: string
+}
+
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  private initialState = {
+  private initialState: InitialStateI = {
     loggedIn: false,
-    authUser: {}
+    authUser: {},
+    token: undefined
   }
 
   state = new BehaviorSubject(this.initialState);

@@ -1,4 +1,5 @@
 export const environment = {
+  production: true,
   firebase: {
     projectId: 'sofkapostandcomments',
     appId: '1:1088865971980:web:50317077830eea05512329',
@@ -7,7 +8,6 @@ export const environment = {
     authDomain: 'sofkapostandcomments.firebaseapp.com',
     messagingSenderId: '1088865971980',
   },
-  production: true,
   ALPHA_URL: "https://alpha-daviddeadly.herokuapp.com/",
   BETA_URL: "https://beta-daviddeadly.herokuapp.com/",
   GAMA_URL: "wss://gama-daviddeadly.herokuapp.com/"
