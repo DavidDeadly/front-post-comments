@@ -19,7 +19,6 @@ export class PostDetailedComponent implements OnInit, OnDestroy {
     private route: ActivatedRoute,
     private requests: RequestsService,
     private socket: WebsocketService,
-    private authService: AuthService
   ) { }
 
   ngOnDestroy(): void {
@@ -27,11 +26,9 @@ export class PostDetailedComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.authService.isLoggedIn(() => {
-      this.getPost();
+    this.getPost();
   
-      this.connectToPostSpace();
-    })
+    this.connectToPostSpace();
   }
 
   getPost() {

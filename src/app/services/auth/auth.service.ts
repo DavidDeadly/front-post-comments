@@ -27,13 +27,11 @@ export class AuthService {
     private router: Router
   ) { } 
 
-  isLoggedIn(cb: Function) {
+  isLoggedIn() {
 
     const state = this.state.getValue();
 
-    if(!state.loggedIn) {
-      this.router.navigateByUrl("/login");
-    } else cb();
+    return state.loggedIn;
   }
 
   logInWithGoogle() {
