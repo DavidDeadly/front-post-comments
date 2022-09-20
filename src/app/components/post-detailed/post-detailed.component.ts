@@ -40,8 +40,11 @@ export class PostDetailedComponent implements OnInit, OnDestroy {
     const id =  this.route.snapshot.paramMap.get("id");
     this.socketManager = this.socket.conectToWebSocket<CommentDB>(id);
     this.socketManager
-    ?.subscribe(msg => {
-      this.post?.comments.push(msg);
+    ?.subscribe({
+      next: msg => {
+        this.post?.comments.push(msg);
+      },
+      error: () => this.connectToPostSpace(),
     })
   }
 

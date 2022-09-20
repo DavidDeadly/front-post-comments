@@ -36,8 +36,11 @@ export class MainComponent implements OnInit, OnDestroy {
   connectToMainSpace() {
     this.socketManager = this.socket.conectToWebSocket<PostDB>("mainspace")
     this.socketManager
-      ?.subscribe(msg => {
-        this.posts?.unshift(msg);
+      ?.subscribe({
+        next: msg => {
+          this.posts?.unshift(msg);
+        },
+        error: () => this.connectToMainSpace(),
       });
   }
 
